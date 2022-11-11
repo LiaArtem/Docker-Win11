@@ -1,0 +1,1 @@
+docker run -itd --name IBMDB2Container --privileged=true --restart=always -p 50000:50000 -e LICENSE=accept -e DB2INST1_PASSWORD=!Aa112233 -e SAMPLEDB=true -v /home/db2server_fs/database:/database ibmcom/db2:latest

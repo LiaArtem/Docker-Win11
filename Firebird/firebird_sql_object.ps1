@@ -1,0 +1,2 @@
+docker cp ./sql_add_object.sql FirebirdContainer:/opt
+docker exec -it FirebirdContainer /usr/local/firebird/bin/isql -user sysdba -password !Aa112233 "/firebird/data/testdb.fdb" -i "/opt/sql_add_object.sql"

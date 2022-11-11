@@ -1,0 +1,29 @@
+-- Role: testdb
+-- DROP ROLE IF EXISTS testdb;
+
+CREATE ROLE testdb WITH
+  LOGIN
+  SUPERUSER
+  INHERIT
+  CREATEDB
+  CREATEROLE
+  NOREPLICATION
+  PASSWORD '!Aa112233';
+
+-- Database: testdb
+-- DROP DATABASE IF EXISTS testdb;
+
+CREATE DATABASE testdb
+    WITH
+    OWNER = testdb
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+GRANT TEMPORARY, CONNECT ON DATABASE testdb TO PUBLIC;
+
+GRANT ALL ON DATABASE testdb TO testdb;
+
+GRANT ALL ON DATABASE testdb TO postgres;

@@ -1,0 +1,1 @@
+docker run --name MySQLContainer --restart=always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=!Aa112233 -d mysql:latest

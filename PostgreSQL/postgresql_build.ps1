@@ -1,0 +1,1 @@
+docker build -t "postgreappdev:2022-latest" .

@@ -1,0 +1,1 @@
+docker run --name OracleContainer --restart=always -d -p 1521:1521 -e ORACLE_PASSWORD=!Aa112233 gvenzl/oracle-xe:latest
