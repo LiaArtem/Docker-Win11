@@ -1,5 +1,5 @@
 # Docker-Desktop-Win11
-Docker Desktop Windows 11 (DB Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB).
+Docker Desktop Windows 11 (Dockerfile, Docker Compose) database (Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB).
 
 Установка для Windows 11
 ----------------------------------------
@@ -66,7 +66,11 @@ listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way f
 ----------------------------------------------------------------------------
 -- Добавление базы данных - MongoDB
 ----------------------------------------------------------------------------
-- Выполняем .\MongoDB\!create_mongodb.bat
+- Выполняем
+  .\MongoDB\!create_mongodb.bat - создание контейнера без создания базы данных testDB
+  .\MongoDB\!create_mongodb_init.bat - создание контейнера c созданием базы данных testDB и коллекции Curs
+  .\MongoDB\!create_mongodb_compose.bat - создание контейнера внутри сервиса (Docker Compose)
+- Просмотр MongoDBCompass(url=mongodb://localhost:27017, Advanced Connection Options -> Authenfication -> Username/Password=root и !Aa112233, Authentication Database=admin, Authentication Mechanism=SCRAM-SHA-1)
 
 ----------------------------------------------------------------------------
 -- Добавление базы данных - IBM DB2
@@ -90,6 +94,13 @@ listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way f
 - Выполняем .\Firebird\!create_firebird.bat
 - Просмотр DBeaver (URL=jdbc:firebirdsql://localhost:3050//firebird/data/testdb.fdb, user=SYSDBA, password=!Aa112233)
 - Примеры sql скриптов: https://firebirdsql.org/file/documentation/reference_manuals/fbdevgd-en/html/fbdevg30-db-run-script.html
+
+----------------------------------------------------------------------------
+-- Добавление баз данных с помощью Docker Compose для одновременного
+-- управления несколькими контейнерами, входящими в состав приложения
+----------------------------------------------------------------------------
+- Выполняем .\Docker Compose\!create_docker_compose.bat
+- Будет создано 3 контейнера с базами данных (MongoDB, IBM DB2, IBM Informix)
 
 ----------------------------------------------------------------------------
 -- Создание сети в Docker

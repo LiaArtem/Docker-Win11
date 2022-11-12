@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  MongoDBContainer:
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=!Aa112233
+    volumes:
+      - ./mongo-init/:/docker-entrypoint-initdb.d/:ro
+    ports:
+      - 27017:27017
