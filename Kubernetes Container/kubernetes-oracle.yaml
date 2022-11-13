@@ -1,0 +1,76 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: oracle-container
+  namespace: default
+  uid: 035365fa-b69e-48e8-ae82-58bc482ac1d6
+  resourceVersion: '14361'
+  creationTimestamp: '2022-11-13T11:36:23Z'
+  labels:
+    k8s-app: oracle-container
+  annotations:
+    description: Oracle database
+  managedFields:
+    - manager: dashboard
+      operation: Update
+      apiVersion: v1
+      time: '2022-11-13T11:36:23Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:description: {}
+          f:labels:
+            .: {}
+            f:k8s-app: {}
+        f:spec:
+          f:allocateLoadBalancerNodePorts: {}
+          f:externalTrafficPolicy: {}
+          f:internalTrafficPolicy: {}
+          f:ports:
+            .: {}
+            k:{"port":1621,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector: {}
+          f:sessionAffinity: {}
+          f:type: {}
+    - manager: kube-vpnkit-forwarder
+      operation: Update
+      apiVersion: v1
+      time: '2022-11-13T11:36:25Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:loadBalancer:
+            f:ingress: {}
+      subresource: status
+spec:
+  ports:
+    - name: tcp-1621-1521-xhmvc
+      protocol: TCP
+      port: 1621
+      targetPort: 1521
+      nodePort: 30245
+  selector:
+    k8s-app: oracle-container
+  clusterIP: 10.110.131.200
+  clusterIPs:
+    - 10.110.131.200
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  allocateLoadBalancerNodePorts: true
+  internalTrafficPolicy: Cluster
+status:
+  loadBalancer:
+    ingress:
+      - hostname: localhost
+

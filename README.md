@@ -1,5 +1,5 @@
 # Docker-Win11
-Docker Windows 11 (Docker Desktop, Docker Compose) databases (Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB).
+Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernetes Dashboard) databases (Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB).
 
 Установка для Windows 11
 ----------------------------------------
@@ -20,6 +20,40 @@ Docker Windows 11 (Docker Desktop, Docker Compose) databases (Oracle, MS SQL, Po
 2) Устанавливаем Docker Desktop
 ----------------------------------------
 - https://www.docker.com/products/docker-desktop/
+
+----------------------------------------
+3) Добавление Kubernetes
+----------------------------------------
+- Docker Desktop -> Settings -> Kubernetes -> Enable Kubernetes (ожидаем установки, должен зеленым засветиться значек)
+- Kubernetes Dashboard
+  - Установка:
+  -----------------------------------------------
+  -- Инструкция - https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+  - Запускаем .\Kubernetes Dashboard\!create_dashboard_install.bat
+  - Запускаем .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
+
+  -- Инструкция - https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+  - Запускаем .\Kubernetes Dashboard\!create_dashboard_user.bat (Создание учетных записей служб)
+  - Запускаем .\Kubernetes Dashboard\!create_dashboard_token.bat (Для доступа генерация Tokenа)
+  - Записать пароль доступа Tokena (пример: eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia......)
+
+  - Запуск - Kubernetes Dashboard:
+  -----------------------------------------------
+  - Запускаем .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
+
+  - *** http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+  - Token - вводим пароль
+
+  - Для пропуска пароля Tokenа:
+    - Запускаем .\Kubernetes Dashboard\!kubernetes-dashboard-skip-login-patch.bat (вход без пароля)
+    - или Запускаем .\Kubernetes Dashboard\!kubernetes-dashboard-skip-login-edit.bat (вход без пароля через редактирование файла)
+    - Пезапускаем .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
+    - При логине появляется кнопка - Skip (жмем ее для входа)
+
+  -----------------------------------------------
+  - Добавляем контейнер
+  - Service -> Service -> Create new responce
+  - Примеры: .\Kubernetes Container\*.yaml или добавить через Create from form руками.
 
 --------------------------------------------------------------------------
 -- Добавление базы данных - MS SQL

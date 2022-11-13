@@ -1,0 +1,1 @@
+kubectl edit deployment kubernetes-dashboard -n kubernetes-dashboard

@@ -1,0 +1,75 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ibmdb2-container
+  namespace: default
+  uid: 5ebcd71c-ab16-4127-ae31-275342503801
+  resourceVersion: '14537'
+  creationTimestamp: '2022-11-13T11:26:55Z'
+  labels:
+    k8s-app: ibmdb2-container
+  annotations:
+    description: IBM DB2 database
+  managedFields:
+    - manager: dashboard
+      operation: Update
+      apiVersion: v1
+      time: '2022-11-13T11:26:55Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:description: {}
+          f:labels:
+            .: {}
+            f:k8s-app: {}
+        f:spec:
+          f:allocateLoadBalancerNodePorts: {}
+          f:externalTrafficPolicy: {}
+          f:internalTrafficPolicy: {}
+          f:ports:
+            .: {}
+            k:{"port":50100,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector: {}
+          f:sessionAffinity: {}
+          f:type: {}
+    - manager: kube-vpnkit-forwarder
+      operation: Update
+      apiVersion: v1
+      time: '2022-11-13T11:42:43Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:loadBalancer:
+            f:ingress: {}
+      subresource: status
+spec:
+  ports:
+    - name: tcp-50100-50000-pqfml
+      protocol: TCP
+      port: 50100
+      targetPort: 50000
+      nodePort: 32707
+  selector:
+    k8s-app: ibmdb2-container
+  clusterIP: 10.99.123.11
+  clusterIPs:
+    - 10.99.123.11
+  type: LoadBalancer
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  allocateLoadBalancerNodePorts: true
+  internalTrafficPolicy: Cluster
+status:
+  loadBalancer:
+    ingress:
+      - hostname: localhost
