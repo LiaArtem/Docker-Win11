@@ -1,5 +1,5 @@
 # Docker-Win11
-Docker Windows 11 (Docker Desktop, Docker Compose) database (Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB).
+Docker Windows 11 (Docker Desktop, Docker Compose) databases (Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB).
 
 Установка для Windows 11
 ----------------------------------------
