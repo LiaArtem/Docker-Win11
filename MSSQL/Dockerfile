@@ -12,6 +12,6 @@ ENV MSSQL_SA_PASSWORD=!Aa112233
 ENV ACCEPT_EULA=Y
 
 # run initial scripts
-RUN /opt/mssql/bin/sqlservr --accept-eula & sleep 10 \
+RUN /opt/mssql/bin/sqlservr --accept-eula & sleep 30 \
     && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '!Aa112233' -i /opt/mssql-scripts/sql_add_mssql.sql \
     && pkill sqlservr
