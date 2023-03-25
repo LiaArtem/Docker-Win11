@@ -1,0 +1,1 @@
+docker run --name CassandraContainer --restart=always -p 9042:9042 -d cassandra:2022-latest

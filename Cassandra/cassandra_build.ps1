@@ -1,0 +1,1 @@
+docker build -t "cassandra:2022-latest" .

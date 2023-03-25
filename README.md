@@ -1,5 +1,6 @@
 # Docker-Win11
-Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernetes Dashboard) databases (Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB).
+Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernetes Dashboard) databases
+(Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB, Cassandra).
 
 Установка для Windows 11
 ----------------------------------------
@@ -128,6 +129,14 @@ listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way f
 - Выполняем .\Firebird\!create_firebird.bat
 - Просмотр DBeaver (URL=jdbc:firebirdsql://localhost:3050//firebird/data/testdb.fdb, user=SYSDBA, password=!Aa112233)
 - Примеры sql скриптов: https://firebirdsql.org/file/documentation/reference_manuals/fbdevgd-en/html/fbdevg30-db-run-script.html
+
+----------------------------------------------------------------------------
+-- Добавление базы данных - Cassandra
+----------------------------------------------------------------------------
+- Выполняем .\Cassandra\!create_cassandra.bat
+- Просмотр через RazorSQL
+- Устанавливаем скрипты: .\Cassandra\cassandra_data.cql
+  (CQL документация - https://cassandra.apache.org/doc/latest/cassandra/cql/index.html)
 
 ----------------------------------------------------------------------------
 -- Добавление баз данных с помощью Docker Compose для одновременного
