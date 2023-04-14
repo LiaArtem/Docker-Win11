@@ -7,15 +7,15 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
 1) Встановлюємо WSL2
 ----------------------------------------
 Інструкція:
-- https://learn.microsoft.com/ru-ua/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
-Крок 1. Увімкнення підсистеми Windows для Linux
-- PowerShell (під адміністратором) -> dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-Крок 2. Увімкнення компонента віртуальних машин
-- PowerShell (під адміністратором) -> dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-Крок 3. Перезавантаження ПК
-Крок 4. Встановлення пакета оновлень ядра Linux - wsl_update_x64.msi (https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
-Крок 5. Вибір WSL 2 як стандартної версії.
-- PowerShell (під адміністратором) -> wsl --set-default-version 2
+  https://learn.microsoft.com/ru-ua/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+- Крок 1. Увімкнення підсистеми Windows для Linux
+  - PowerShell (під адміністратором) -> dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+- Крок 2. Увімкнення компонента віртуальних машин
+  - PowerShell (під адміністратором) -> dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+- Крок 3. Перезавантаження ПК
+- Крок 4. Встановлення пакета оновлень ядра Linux - wsl_update_x64.msi (https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+- Крок 5. Вибір WSL 2 як стандартної версії.
+  - PowerShell (під адміністратором) -> wsl --set-default-version 2
 
 ----------------------------------------
 2) Встановлюємо Docker Desktop
@@ -57,7 +57,7 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
   - Приклади: .\Kubernetes Container\*.yaml або додати через Create from form руками.
 
 -------------------------------------------------- ------------------------
--- Додавання бази даних - MS SQL
+Додавання бази даних - MS SQL
 -------------------------------------------------- ------------------------
 - Виконуємо .\MSSQL\!create_mssql.bat
 - Перегляд Microsoft SQL Server Management Studio 19 (host=localhost, user=sa, password=!Aa112233)
@@ -68,7 +68,7 @@ listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way f
 - Виконуємо .\MSSQL\!create_mssql_restart_winnat.bat
 
 -------------------------------------------------- ---------------------------
--- Додавання бази даних - PostgreSQL (з розширеннями plpython3u та pldbgapi)
+Додавання бази даних - PostgreSQL (з розширеннями plpython3u та pldbgapi)
 -------------------------------------------------- ---------------------------
 - Виконуємо .\PostgreSQL\!create_postgre.bat
 - Перегляд DBeaver (host=localhost, port=5432, database=postgres, user=postgres, password=!Aa112233)
@@ -80,26 +80,26 @@ listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way f
 3) Перевіряємо: -> locale -a
 
 -------------------------------------------------- --------------------------
--- Додавання бази даних - MySQL
+Додавання бази даних - MySQL
 -------------------------------------------------- --------------------------
 - Виконуємо .\MySQL\!create_mysql.bat
 - Перегляд DBeaver (host=localhost, port=3306, user=root, password=!Aa112233,
                     у з'єднанні вкладка SSL -> Використовувати SSL (увімкнути), Перевіряти сертифікати сервера (вимкнути))
 
 -------------------------------------------------- --------------------------
--- Додавання бази даних - MariaDB
+Додавання бази даних - MariaDB
 -------------------------------------------------- --------------------------
 - Виконуємо .\MariaDB\!create_mariadb.bat
 - Перегляд DBeaver (host=localhost, port=3307, user=root, password=!Aa112233)
 
 -------------------------------------------------- --------------------------
--- Додавання бази даних - Oracle XE
+Додавання бази даних - Oracle XE
 -------------------------------------------------- --------------------------
 - Виконуємо .\Oracle\!create_oracle.bat
 - Перегляд DBeaver (host=localhost, port=1521, database=XE, user=sys як sysdba, password=!Aa112233)
 
 -------------------------------------------------- --------------------------
--- Додавання бази даних - MongoDB
+Додавання бази даних - MongoDB
 -------------------------------------------------- --------------------------
 - Виконуємо
   .\MongoDB\!create_mongodb.bat - створення контейнера без створення бази даних testDB
@@ -108,14 +108,14 @@ listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way f
 - Перегляд MongoDBCompass(url=mongodb://localhost:27017, Advanced Connection Options -> Authenfication -> Username/Password=root і !Aa112233, Authentication Database=admin, Authentication Mechanism=SCRAM-SHA-1)
 
 -------------------------------------------------- --------------------------
--- Додавання бази даних - IBM DB2
+Додавання бази даних - IBM DB2
 -------------------------------------------------- --------------------------
 - Виконуємо .\IBM DB2\!create_ibmdb2.bat
 - Перегляд та встановлення скриптів DBeaver (host=localhost, port=50000, database=sample, user=DB2INST1, password=!Aa112233)
 - Встановлюємо скрипти: .\IBM DB2\sql_add_object.sql
 
 -------------------------------------------------- --------------------------
--- Додавання бази даних - IBM Informix
+Додавання бази даних - IBM Informix
 -------------------------------------------------- --------------------------
 - Виконуємо .\IBM Informix\!create_informix.bat
 - Перегляд та встановлення скриптів DBeaver (host=localhost, port=9088, database=sysadmin, user=informix, password=!Aa112233)
@@ -124,14 +124,14 @@ listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way f
 - Встановлюємо скрипти: .\IBM Informix\sql_add_object.sql
 
 -------------------------------------------------- --------------------------
--- Додавання бази даних - Firebird
+Додавання бази даних - Firebird
 -------------------------------------------------- --------------------------
 - Виконуємо .\Firebird\!create_firebird.bat
 - Перегляд DBeaver (URL=jdbc:firebirdsql://localhost:3050//firebird/data/testdb.fdb, user=SYSDBA, password=!Aa112233)
 - Приклади sql скриптів: https://firebirdsql.org/file/documentation/reference_manuals/fbdevgd-en/html/fbdevg30-db-run-script.html
 
 -------------------------------------------------- --------------------------
--- Додавання бази даних - Cassandra
+Додавання бази даних - Cassandra
 -------------------------------------------------- --------------------------
 - Виконуємо .\Cassandra\!create_cassandra.bat
 - Перегляд через RazorSQL
@@ -139,14 +139,13 @@ listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way f
   (CQL документація - https://cassandra.apache.org/doc/latest/cassandra/cql/index.html)
 
 -------------------------------------------------- --------------------------
--- Додавання баз даних за допомогою Docker Compose для одночасного
--- керування кількома контейнерами, що входять до складу програми
+Додавання баз даних за допомогою Docker Compose для одночасного керування кількома контейнерами, що входять до складу програми
 -------------------------------------------------- --------------------------
 - Виконуємо .\Docker Compose\!create_docker_compose.bat
 - Буде створено 3 контейнери з базами даних (MongoDB, IBM DB2, IBM Informix)
 
 -------------------------------------------------- --------------------------
--- Створення мережі в Docker
+Створення мережі в Docker
 -------------------------------------------------- --------------------------
 docker network create docker-network
 docker network connect docker-network MSSQLContainer
