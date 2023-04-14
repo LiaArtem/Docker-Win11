@@ -4,6 +4,7 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
 
 Установка для Windows 11
 ----------------------------------------
+
 1) Встановлюємо WSL2
 ----------------------------------------
 Інструкція:
@@ -17,12 +18,10 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
 - Крок 5. Вибір WSL 2 як стандартної версії.
   - PowerShell (під адміністратором) -> wsl --set-default-version 2
 
-----------------------------------------
 2) Встановлюємо Docker Desktop
 ----------------------------------------
 - https://www.docker.com/products/docker-desktop/
 
-----------------------------------------
 3) Додавання Kubernetes
 ----------------------------------------
 - Docker Desktop -> Settings -> Kubernetes -> Enable Kubernetes (очікуємо установки, повинен зеленим засвітитися знак)
@@ -56,7 +55,6 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
   - Service -> Service -> Create new responce
   - Приклади: .\Kubernetes Container\*.yaml або додати через Create from form руками.
 
--------------------------------------------------- ------------------------
 Додавання бази даних - MS SQL
 -------------------------------------------------- ------------------------
 - Виконуємо .\MSSQL\!create_mssql.bat
@@ -67,7 +65,6 @@ docker: Error response from daemon: ports no available: exposing port TCP 0.0.0.
 listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
 - Виконуємо .\MSSQL\!create_mssql_restart_winnat.bat
 
--------------------------------------------------- ---------------------------
 Додавання бази даних - PostgreSQL (з розширеннями plpython3u та pldbgapi)
 -------------------------------------------------- ---------------------------
 - Виконуємо .\PostgreSQL\!create_postgre.bat
@@ -79,7 +76,6 @@ listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way f
 2) Якщо немає української локалі (uk_UA.UTF-8) то її необхідно зробити: localedef -i uk_UA -f UTF-8 uk_UA.UTF-8
 3) Перевіряємо: -> locale -a
 
--------------------------------------------------- --------------------------
 Додавання бази даних - MySQL
 -------------------------------------------------- --------------------------
 - Виконуємо .\MySQL\!create_mysql.bat
