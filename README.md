@@ -3,10 +3,9 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
 (Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB, Cassandra).
 
 Установка для Windows 11
-----------------------------------------
 
-1) Встановлюємо WSL2:
-  ----------------------------------------
+---------------------------------------------------------------------------------
+1) Встановлюємо WSL2
   Інструкція:
     https://learn.microsoft.com/ru-ua/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
   - Крок 1. Увімкнення підсистеми Windows для Linux
@@ -18,45 +17,45 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
   - Крок 5. Вибір WSL 2 як стандартної версії.
     - PowerShell (під адміністратором) -> wsl --set-default-version 2
 
+---------------------------------------------------------------------------------
 2) Встановлюємо Docker Desktop:
-  ----------------------------------------
-  - https://www.docker.com/products/docker-desktop/
+   - https://www.docker.com/products/docker-desktop/
 
+---------------------------------------------------------------------------------
 3) Додавання Kubernetes:
-  ----------------------------------------
-  - Docker Desktop -> Settings -> Kubernetes -> Enable Kubernetes (очікуємо установки, повинен зеленим засвітитися знак)
-  - Kubernetes Dashboard
-    - Установка:
-    -----------------------------------------------
-    - Інструкція - https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
-    - Запускаємо .\Kubernetes Dashboard\!create_dashboard_install.bat
-    - Запускаємо .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
+   - Docker Desktop -> Settings -> Kubernetes -> Enable Kubernetes (очікуємо установки, повинен зеленим засвітитися знак)
+   - Kubernetes Dashboard
+     - Установка:
+     -----------------------------------------------
+     - Інструкція - https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+     - Запускаємо .\Kubernetes Dashboard\!create_dashboard_install.bat
+     - Запускаємо .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
 
-    -- Інструкція - https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
-    - Запускаємо .\Kubernetes Dashboard\!create_dashboard_user.bat (Створення облікових записів служб)
-    - Запускаємо .\Kubernetes Dashboard\!create_dashboard_token.bat (Для доступу генерації Tokenа)
-    - Записати пароль доступу Tokena (приклад: eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia......)
+     - Інструкція - https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+     - Запускаємо .\Kubernetes Dashboard\!create_dashboard_user.bat (Створення облікових записів служб)
+     - Запускаємо .\Kubernetes Dashboard\!create_dashboard_token.bat (Для доступу генерації Tokenа)
+     - Записати пароль доступу Tokena (приклад: eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia......)
 
+---------------------------------------------------------------------------------
 4) Запуск - Kubernetes Dashboard:
-  -----------------------------------------------
-  - Запускаємо .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
+   - Запускаємо .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
 
-  - *** http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
-  - Token – вводимо пароль
+   - *** http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+   - Token – вводимо пароль
 
-  - Для пропуску пароля Token:
-    - Запускаємо .\Kubernetes Dashboard\!kubernetes-dashboard-skip-login-patch.bat (вхід без пароля)
-    - або Запускаємо .\Kubernetes Dashboard\!kubernetes-dashboard-skip-login-edit.bat (вхід без пароля через редагування файлу)
-    - Пезапускаємо .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
-    - При логіні з'являється кнопка - Skip (тиснемо її для входу)
+   - Для пропуску пароля Token:
+     - Запускаємо .\Kubernetes Dashboard\!kubernetes-dashboard-skip-login-patch.bat (вхід без пароля)
+     - або Запускаємо .\Kubernetes Dashboard\!kubernetes-dashboard-skip-login-edit.bat (вхід без пароля через редагування файлу)
+     - Пезапускаємо .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
+     - При логіні з'являється кнопка - Skip (тиснемо її для входу)
 
-  -----------------------------------------------
-  - Додаємо контейнер
-  - Service -> Service -> Create new responce
-  - Приклади: .\Kubernetes Container\*.yaml або додати через Create from form руками.
+     - Додаємо контейнер
+     - Service -> Service -> Create new responce
+     - Приклади: .\Kubernetes Container\*.yaml або додати через Create from form руками.
 
+---------------------------------------------------------------------------------
 Додавання бази даних - MS SQL
-  -------------------------------------------------- ------------------------
+
   - Виконуємо .\MSSQL\!create_mssql.bat
   - Перегляд Microsoft SQL Server Management Studio 19 (host=localhost, user=sa, password=!Aa112233)
 
@@ -65,16 +64,17 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
   listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
   - Виконуємо .\MSSQL\!create_mssql_restart_winnat.bat
 
+---------------------------------------------------------------------------------
 Додавання бази даних - PostgreSQL (з розширеннями plpython3u та pldbgapi)
--------------------------------------------------- ---------------------------
-- Виконуємо .\PostgreSQL\!create_postgre.bat
-- Перегляд DBeaver (host=localhost, port=5432, database=postgres, user=postgres, password=!Aa112233)
 
-Додатково:
-Додаємо російську мову в контейнер Docker Desktop -> PostgreSQLContainer -> Terminal
-1) Якщо ж під час виведення команди: -> locale -a
-2) Якщо немає української локалі (uk_UA.UTF-8) то її необхідно зробити: localedef -i uk_UA -f UTF-8 uk_UA.UTF-8
-3) Перевіряємо: -> locale -a
+  - Виконуємо .\PostgreSQL\!create_postgre.bat
+  - Перегляд DBeaver (host=localhost, port=5432, database=postgres, user=postgres, password=!Aa112233)
+
+  Додатково:
+  Додаємо українську мову в контейнер Docker Desktop -> PostgreSQLContainer -> Terminal
+  1) Якщо ж під час виведення команди: -> locale -a
+  2) Якщо немає української локалі (uk_UA.UTF-8) то її необхідно зробити: localedef -i uk_UA -f UTF-8 uk_UA.UTF-8
+  3) Перевіряємо: -> locale -a
 
 Додавання бази даних - MySQL
 -------------------------------------------------- --------------------------
