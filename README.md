@@ -5,39 +5,39 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
 Установка для Windows 11
 ----------------------------------------
 
-1) Встановлюємо WSL2
-----------------------------------------
-Інструкція:
-  https://learn.microsoft.com/ru-ua/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
-- Крок 1. Увімкнення підсистеми Windows для Linux
-  - PowerShell (під адміністратором) -> dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-- Крок 2. Увімкнення компонента віртуальних машин
-  - PowerShell (під адміністратором) -> dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-- Крок 3. Перезавантаження ПК
-- Крок 4. Встановлення пакета оновлень ядра Linux - wsl_update_x64.msi (https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
-- Крок 5. Вибір WSL 2 як стандартної версії.
-  - PowerShell (під адміністратором) -> wsl --set-default-version 2
+1) Встановлюємо WSL2:
+  ----------------------------------------
+  Інструкція:
+    https://learn.microsoft.com/ru-ua/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+  - Крок 1. Увімкнення підсистеми Windows для Linux
+    - PowerShell (під адміністратором) -> dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+  - Крок 2. Увімкнення компонента віртуальних машин
+    - PowerShell (під адміністратором) -> dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  - Крок 3. Перезавантаження ПК
+  - Крок 4. Встановлення пакета оновлень ядра Linux - wsl_update_x64.msi (https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+  - Крок 5. Вибір WSL 2 як стандартної версії.
+    - PowerShell (під адміністратором) -> wsl --set-default-version 2
 
-2) Встановлюємо Docker Desktop
-----------------------------------------
-- https://www.docker.com/products/docker-desktop/
+2) Встановлюємо Docker Desktop:
+  ----------------------------------------
+  - https://www.docker.com/products/docker-desktop/
 
-3) Додавання Kubernetes
-----------------------------------------
-- Docker Desktop -> Settings -> Kubernetes -> Enable Kubernetes (очікуємо установки, повинен зеленим засвітитися знак)
-- Kubernetes Dashboard
-  - Установка:
-  -----------------------------------------------
-  - Інструкція - https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
-  - Запускаємо .\Kubernetes Dashboard\!create_dashboard_install.bat
-  - Запускаємо .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
+3) Додавання Kubernetes:
+  ----------------------------------------
+  - Docker Desktop -> Settings -> Kubernetes -> Enable Kubernetes (очікуємо установки, повинен зеленим засвітитися знак)
+  - Kubernetes Dashboard
+    - Установка:
+    -----------------------------------------------
+    - Інструкція - https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+    - Запускаємо .\Kubernetes Dashboard\!create_dashboard_install.bat
+    - Запускаємо .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
 
-  -- Інструкція - https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
-  - Запускаємо .\Kubernetes Dashboard\!create_dashboard_user.bat (Створення облікових записів служб)
-  - Запускаємо .\Kubernetes Dashboard\!create_dashboard_token.bat (Для доступу генерації Tokenа)
-  - Записати пароль доступу Tokena (приклад: eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia......)
+    -- Інструкція - https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+    - Запускаємо .\Kubernetes Dashboard\!create_dashboard_user.bat (Створення облікових записів служб)
+    - Запускаємо .\Kubernetes Dashboard\!create_dashboard_token.bat (Для доступу генерації Tokenа)
+    - Записати пароль доступу Tokena (приклад: eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia......)
 
-- Запуск - Kubernetes Dashboard:
+4) Запуск - Kubernetes Dashboard:
   -----------------------------------------------
   - Запускаємо .\Kubernetes Dashboard\!start_dashboard_server.bat (Старт сервера)
 
@@ -56,14 +56,14 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
   - Приклади: .\Kubernetes Container\*.yaml або додати через Create from form руками.
 
 Додавання бази даних - MS SQL
--------------------------------------------------- ------------------------
-- Виконуємо .\MSSQL\!create_mssql.bat
-- Перегляд Microsoft SQL Server Management Studio 19 (host=localhost, user=sa, password=!Aa112233)
+  -------------------------------------------------- ------------------------
+  - Виконуємо .\MSSQL\!create_mssql.bat
+  - Перегляд Microsoft SQL Server Management Studio 19 (host=localhost, user=sa, password=!Aa112233)
 
-Якщо помилка:
-docker: Error response from daemon: ports no available: exposing port TCP 0.0.0.0:1433 -> 0.0.0.0:0:
-listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
-- Виконуємо .\MSSQL\!create_mssql_restart_winnat.bat
+  Якщо помилка:
+  docker: Error response from daemon: ports no available: exposing port TCP 0.0.0.0:1433 -> 0.0.0.0:0:
+  listen tcp 0.0.0.0:1433: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+  - Виконуємо .\MSSQL\!create_mssql_restart_winnat.bat
 
 Додавання бази даних - PostgreSQL (з розширеннями plpython3u та pldbgapi)
 -------------------------------------------------- ---------------------------
