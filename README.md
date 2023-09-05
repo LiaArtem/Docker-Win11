@@ -1,6 +1,6 @@
 # Docker-Win11
 Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernetes Dashboard) databases
-(Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB, Cassandra).
+(Oracle, MS SQL, PostgreSQL, MySQL, MariaDB, IBM DB2, IBM Informix, Firebird, MongoDB, Cassandra, Redis).
 
 Установка для Windows 11
 
@@ -133,6 +133,12 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
   - Перегляд через RazorSQL
   - Встановлюємо скрипти: .\Cassandra\cassandra_data.cql
     (CQL документація - https://cassandra.apache.org/doc/latest/cassandra/cql/index.html)
+
+-------------------------------------------------- --------------------------
+Додавання бази даних - Redis
+
+  - Виконуємо .\Cassandra\!create_redis.bat
+  - Перегляд AnotherRedisDesktopManager (host=localhost, port=6379)
 
 ---------------------------------------------------------------------------------
 Додавання баз даних за допомогою Docker Compose для одночасного керування кількома контейнерами, що входять до складу програми
