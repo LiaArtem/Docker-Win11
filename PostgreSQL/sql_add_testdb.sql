@@ -44,7 +44,7 @@ COMMENT ON COLUMN test_schemas.curs.rate
 -- Index: uk_curs
 -- DROP INDEX IF EXISTS test_schemas.uk_curs;
 
-CREATE UNIQUE INDEX IF NOT EXISTS uk_curs
+CREATE UNIQUE INDEX IF NOT EXISTS test_schemas.uk_curs
     ON test_schemas.curs USING btree
     (curs_date ASC NULLS LAST, curr_code COLLATE pg_catalog."default" ASC NULLS LAST)
     TABLESPACE pg_default;
