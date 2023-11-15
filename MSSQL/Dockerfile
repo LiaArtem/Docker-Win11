@@ -1,5 +1,6 @@
 # use MSSQL 2022 image
 FROM mcr.microsoft.com/mssql/server:2022-latest
+USER root
 
 # create directory within SQL container for database files
 RUN mkdir -p /opt/mssql-scripts
