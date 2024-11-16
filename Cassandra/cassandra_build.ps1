@@ -1,1 +1,1 @@
-docker build -t "cassandra:2022-latest" .
+docker build -t "cassandra:manual-latest" .

@@ -1,1 +1,1 @@
-docker build -t "postgreappdev:2023-latest" .
+docker build -t "postgreappdev:manual-latest" .

@@ -1,1 +1,1 @@
-docker build -t "mssqlappdev:2022-latest" .
+docker build -t "mssqlappdev:manual-latest" .

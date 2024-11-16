@@ -1,1 +1,1 @@
-docker build -t "mongoappdev:2022-latest" .
+docker build -t "mongoappdev:manual-latest" .
