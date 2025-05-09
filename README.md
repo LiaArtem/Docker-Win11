@@ -120,11 +120,19 @@ Docker Windows 11 (Docker, Docker Compose, Kubernetes, Docker Desktop, Kubernete
   - Встановлюємо скрипти: .\IBM Informix\sql_add_object.sql
 
 ---------------------------------------------------------------------------------
+Додавання бази даних - Firebird EF6
+
+  - Виконуємо .\Firebird EF6\!create_firebird.bat
+  - Перегляд DBeaver (URL=jdbc:firebirdsql://localhost:3050//firebird/data/testdb.fdb, user=SYSDBA, password=!Aa112233)
+  - Приклади sql скриптів: https://firebirdsql.org/file/documentation/reference_manuals/fbdevgd-en/html/fbdevg30-db-run-script.html
+
+---------------------------------------------------------------------------------
 Додавання бази даних - Firebird
 
   - Виконуємо .\Firebird\!create_firebird.bat
-  - Перегляд DBeaver (URL=jdbc:firebirdsql://localhost:3050//firebird/data/testdb.fdb, user=SYSDBA, password=!Aa112233)
-  - Приклади sql скриптів: https://firebirdsql.org/file/documentation/reference_manuals/fbdevgd-en/html/fbdevg30-db-run-script.html
+  - Перегляд DBeaver (URL=jdbc:firebirdsql://localhost:3050//var/lib/firebird/data/SampleDatabase.fdb, user=SYSDBA, password=!Aa112233)
+  - Встановлюємо скрипти: .\Firebird\sql_add_object.sql
+  - Встановлюємо скрипти: .\Firebird\sql_add_object_2.sql
 
 -------------------------------------------------- --------------------------
 Додавання бази даних - Cassandra

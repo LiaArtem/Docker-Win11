@@ -1,1 +1,1 @@
-docker run --name FirebirdContainer --restart=always -p 3050:3050 -e ISC_PASSWORD=!Aa112233 -d jacobalberty/firebird:latest
+docker run --name FirebirdContainer --restart=always -p 3050:3050 -e FIREBIRD_ROOT_PASSWORD=!Aa112233 -e FIREBIRD_DATABASE=SampleDatabase.fdb -e FIREBIRD_DATABASE_DEFAULT_CHARSET=UTF8 -v ./data:/var/lib/firebird/data --detach firebirdsql/firebird

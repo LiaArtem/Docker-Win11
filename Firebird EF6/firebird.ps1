@@ -1,0 +1,1 @@
+docker run --name FirebirdContainer --restart=always -p 3050:3050 -e ISC_PASSWORD=!Aa112233 -d jacobalberty/firebird:latest
